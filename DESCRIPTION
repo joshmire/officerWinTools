@@ -1,0 +1,23 @@
+Package: officerWinTools
+Title: Functions to Compliment 'officer' package in a Windows environment 
+Version: 0.1.0
+Imports:
+    officer, 
+    R.utils
+Suggests:
+    dplyr
+Authors@R: 
+    person(given = "Joshua",
+           family = "Mire",
+           role = c("aut", "cre"),
+           email = "the.doctor@joshmire.com")
+Description: THIS PACKAGE REQUIRES A WINDOWS OPERATING SYSTEM AND MICROSOFT 
+    OFFICE.  The package is meant to be used along side the 'officer' package.  
+    The package includes functions for exporting Microsoft Word and PowerPoint 
+    files a .pdf files.  The package also includes a function for updating the 
+    tables of contents of a Microsoft Word document created with 'officer'.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0

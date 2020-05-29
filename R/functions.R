@@ -105,7 +105,7 @@ print_pptx_pdf <- function(x, target = NULL, ...){
 		c(
 			'Set objPpt = CreateObject("Powerpoint.Application")',
 			'objPpt.DisplayAlerts = False',
-			paste('Set pres = objPpt.Presentations.Open("',normalizePath(paste(getwd(),"/temp.pptx",sep="")),'")',sep=""),
+			paste('Set pres = objPpt.Presentations.Open("',normalizePath(paste(getwd(),"/temp.pptx",sep="")),'", , , msoFalse)',sep=""),
 			'On Error Resume Next',
 			paste('Call pres.SaveAs("',target,'", 32)',sep=""),
 			'On Error GoTo 0',

@@ -8,5 +8,4 @@ package by [David Gohel et al](https://davidgohel.github.io/officer/authors.html
 the package has no association with the authors of [officer](https://github.com/davidgohel/officer).  
   
 The package includes functions for exporting Microsoft Word `.docx` and PowerPoint `.pptx` files as `.pdf` files 
-and a function for updating the tables of contents of a Microsoft Word document created with 
-[officer](https://github.com/davidgohel/officer).
+and a function for updating the tables of contents of a Microsoft Word document.

@@ -21,17 +21,17 @@ tables of contents of a Microsoft Word document.
  PowerPoint presentation into another at a specified index or else at the end of the presentation.
  Also, if possible, add `remove_last_page()` function which will remove the last page of a Word
  document; will be useful for removing unintentionally added pages from using 
- [officer](https://github.com/davidgohel/officer)'s `body_end_section_landscape()` function.
+ *[officer](https://github.com/davidgohel/officer)*'s `body_end_section_landscape()` function.
  
  *Version 2.0.0*:  Remove need for writing `temp.vbs`.
  
  *Version 3.0.0*:  Linux compatibility.
  
  *Archive*:  If Linux compatibility can be achieved, this package will be archieved and re-uploaded
- as officerTools and submitted to CRAN.
+ as *officerTools* and submitted to CRAN.
   
  ## Author's note  
-The package is meant to be used along side the [officer](https://github.com/davidgohel/officer) R 
+The package is meant to be used along side the *[officer](https://github.com/davidgohel/officer)* R 
 package by [David Gohel et al](https://davidgohel.github.io/officer/authors.html).  The author of 
 the package has no affiliation with the [authors](https://davidgohel.github.io/officer/authors.html) 
-of [officer](https://github.com/davidgohel/officer).  
+of *[officer](https://github.com/davidgohel/officer)*.  

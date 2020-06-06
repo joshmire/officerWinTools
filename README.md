@@ -19,7 +19,7 @@ tables of contents of a Microsoft Word document.
  ## Development Plan
  *Version 1.0.0*:  Add `insert_slide()` function which will copy a range of slides from one 
  PowerPoint presentation into another at a specified index or else at the end of the presentation.
- Also, if possible, ass `remove_last_page()` function which will remove the last pag of a Word
+ Also, if possible, add `remove_last_page()` function which will remove the last page of a Word
  document; will be useful for removing unintentionally added pages from using 
  [officer](https://github.com/davidgohel/officer)'s `body_end_section_landscape()` function.
  

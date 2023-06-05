@@ -2,4 +2,5 @@
 
 export(print_docx_pdf)
 export(print_pptx_pdf)
+export(update_docx_title)
 export(update_toc)

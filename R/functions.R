@@ -49,7 +49,7 @@ print_docx_pdf <- function(x, target = NULL, ...){
 			'TOC.Update',
 			'Next',
 			'On Error GoTo 0',
-			paste('Call doc.SaveAs2("',target,'", 17)',sep=""),
+			paste('Call doc.SaveAs2("',paste(getwd(),"/",target,sep=""),'", 17)',sep=""),
 			'doc.Saved = TRUE',
 			'objWord.Quit'
 

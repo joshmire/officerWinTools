@@ -188,3 +188,59 @@ update_toc <- function(x){
 
   x
 }
+
+#' Update the title property of a .docx file created with the 'officer' package
+#'
+#' This function exports the document as a temporary .docx file, creates a
+#' temporary .vbs file to update the document's title property and save, runs
+#' the .vbs file in command prompt, overrides x using the 'read_docx()' function
+#' of the 'officer' package, deletes the temporary files, and returns the
+#' updated .docx file.
+#'
+#' @param x document created using 'read_docx()' function from 'officer' package
+#' @param title string the document's title property is to be set to
+#' @examples
+#' doc <- read_docx()
+#' doc <- update_docx_title(doc, "Example title")
+#' @export
+update_docx_title <- function(x, title = NULL){
+
+  if(Sys.info()['sysname'] != "Windows"){
+    stop('The "officerWinTools" package requires Windows operating system.  "update_title" will only work in a Windows enviroment.')
+  }
+
+  tryCatch(
+    {print(x, target = file.path(paste(getwd(),"/temp.docx",sep="")))},
+    error=function(cond) {stop("x is not a Word document.")}
+  )
+
+  print(x, target = file.path(paste(getwd(),"/temp.docx",sep="")))
+
+  writeLines(
+    c(
+      'Set objWord = CreateObject("Word.Application")',
+      'objWord.Visible = False',
+      'objWord.DisplayAlerts = False',
+      paste('Set doc = objWord.Documents.Open("',normalizePath(paste(getwd(),"/temp.docx",sep="")),'")',sep=""),
+      paste('doc.BuiltInDocumentProperties("Title") = "',title,'"',sep=""),
+      'doc.Saved = False',
+      'doc.Save',
+      'doc.Close (TRUE)',
+      'objWord.Quit'
+
+    ),
+    con = file.path(paste(getwd(),"/temp.vbs",sep="")),
+    sep = "\n",
+    useBytes = FALSE
+  )
+
+  shell(shQuote(normalizePath(file.path(paste(getwd(),"/temp.vbs",sep="")))), "cscript", flag = "//nologo")
+
+  x <- officer::read_docx(path = file.path(paste(getwd(),"/temp.docx",sep="")))
+
+  invisible(file.remove(file.path(paste(getwd(),"/temp.docx",sep=""))))
+
+  invisible(file.remove(file.path(paste(getwd(),"/temp.vbs",sep=""))))
+
+  x
+}
